@@ -43,6 +43,18 @@
   --sidebar-btn-color: #787878;
   --avatar-border-color: rgb(206, 206, 206, 0.9);
 
+  aside#sidebar {
+    background-image: url('/assets/img/miscs/DMtools1.png');
+    background-repeat: repeat-y;
+    background-size: cover;
+  }
+
+  aside#panel-wrapper {
+    background-image: url('/assets/img/miscs/DMtools2.png');
+    background-repeat: repeat-y;
+    background-size: cover;
+  }
+
   /* Topbar */
   --topbar-bg: rgb(27, 27, 30, 0.64);
   --topbar-text-color: var(--text-color);

@@ -44,6 +44,20 @@
   --sidebar-btn-color: #8e8e8e;
   --avatar-border-color: white;
 
+  aside#sidebar {
+    background-image: url('/assets/img/miscs/LMtools1.png;');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: center;
+  }
+
+  aside#panel-wrapper {
+    background-image: url('/assets/img/miscs/LMtools2.png');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: center;
+  }
+
   /* Topbar */
   --topbar-bg: rgb(255, 255, 255, 0.7);
   --topbar-text-color: rgb(78, 78, 78);
