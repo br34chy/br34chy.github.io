@@ -99,12 +99,12 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     @extend %sidebar-link-hover;
 
     font-family: inherit;
-    font-weight: 900;
-    font-size: 1.75rem;
-    line-height: 1.2;
-    letter-spacing: 0.25px;
-    margin-top: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-weight: 1000; // max it out, go THICC
+    font-size: 3rem; // BIGGER
+    line-height: 1.2; // tighter vertical spacing
+    letter-spacing: 1px; // slight spread for boldness
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
     width: fit-content;
     color: var(--site-title-color);
   }

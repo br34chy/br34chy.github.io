@@ -32,28 +32,74 @@
   );
 
   /* Sidebar */
-  --site-title-color: #717070;
-  --site-subtitle-color: #868686;
-  --sidebar-bg: #1e1e1e;
-  --sidebar-border-color: #292929;
-  --sidebar-muted-color: #868686;
-  --sidebar-active-color: rgb(255, 255, 255, 0.95);
-  --sidebar-hover-bg: #262626;
-  --sidebar-btn-bg: #232328;
-  --sidebar-btn-color: #787878;
-  --avatar-border-color: rgb(206, 206, 206, 0.9);
+  // --site-title-color: #ff1493;
+  // --site-subtitle-color: #ff1493;
+  // --sidebar-bg: #1e1e1e;
+  // --sidebar-border-color: #292929;
+  // --sidebar-muted-color: #868686;
+  // --sidebar-active-color: rgb(255, 255, 255, 0.95);
+  // --sidebar-hover-bg: #262626;
+  // --sidebar-btn-bg: #232328;
+  // --sidebar-btn-color: #787878;
+  // --avatar-border-color: rgb(206, 206, 206, 0.9);
+
+  --site-title-color: #ff00cc; /* Electric pink for title */
+  --site-subtitle-color: #ff66cc; /* Softer pink for subtitle */
+  --sidebar-bg: #121212; /* Deeper black for sleek look */
+  --sidebar-border-color: #1f1f1f; /* Subtle contrast */
+  --sidebar-muted-color: #999999; /* More readable muted text */
+  --sidebar-active-color: #ffffff; /* Clean white for active text */
+  --sidebar-hover-bg: #1e1e2e; /* Slightly lighter dark for hover */
+  --sidebar-btn-bg: #1a1a1a; /* Darker button background */
+  --sidebar-btn-color: #ff99cc; /* Light pink for button icons */
+  --avatar-border-color: #ffffff;
 
   aside#sidebar {
     background-image: url('/assets/img/miscs/DMtools1.png');
     background-repeat: repeat-y;
-    background-size: cover;
+    background-size: contain;
   }
 
   aside#panel-wrapper {
     background-image: url('/assets/img/miscs/DMtools2.png');
     background-repeat: repeat-y;
-    background-size: cover;
+    background-size: contain;
   }
+
+  .site-title {
+    background-color: black;
+    padding: 0.25rem 0.5rem; // Gives breathing room inside the box
+    border-radius: 30px; // Optional: soften those edges
+    text-shadow: 0 0 13px rgba(255, 20, 147, 0.8); // neon pink glow
+  }
+
+  .site-subtitle {
+    background-color: black;
+    padding: 0.25rem 0.5rem; // Gives breathing room inside the box
+    border-radius: 30px; // Optional: soften those edges
+    text-shadow: 0 0 13px rgba(255, 20, 147, 0.8); // neon pink glow
+  }
+
+  // %button {
+  //   width: $btn-size;
+  //   height: $btn-size;
+  //   margin-bottom: $btn-mb;
+  //   border-radius: 50%;
+  //   color: var(--sidebar-btn-color);
+  //   background-color: var(--sidebar-btn-bg);
+  //   text-align: center;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   transition: transform 0.2s ease, background-color 0.2s ease;
+
+  //   &:hover {
+  //     background-color: var(--sidebar-hover-bg);
+  //     transform: scale(1.15);
+  //     font-size: 105%;
+  //     box-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc;
+  //   }
+  // }
 
   /* Topbar */
   --topbar-bg: rgb(27, 27, 30, 0.64);

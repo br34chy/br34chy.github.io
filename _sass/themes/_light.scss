@@ -45,17 +45,45 @@
   --avatar-border-color: white;
 
   aside#sidebar {
-    background-image: url('/assets/img/miscs/LMtools1.png;');
-    background-size: cover;
+    background-image: url('/assets/img/miscs/LMtools1.png');
+    background-size: contain;
     background-repeat: repeat-y;
     background-position: center;
   }
 
   aside#panel-wrapper {
     background-image: url('/assets/img/miscs/LMtools2.png');
-    background-size: cover;
+    background-size: contain;
     background-repeat: repeat-y;
     background-position: center;
+  }
+
+  .stamp {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 0;
+    padding: 0.5rem;
+    width: 100%; // Take full width of the parent
+    box-sizing: border-box; // Includes padding in width
+    text-align: center;
+    overflow-wrap: break-word;
+    margin-top: 1rem;
+  }
+
+  .site-title {
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .site-subtitle {
+    color: black;
+    font-size: 0.875rem;
+    margin: 0;
   }
 
   /* Topbar */
