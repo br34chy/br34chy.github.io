@@ -55,18 +55,23 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
 
   #avatar {
     display: block;
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 8rem;
+    height: 8rem;
     overflow: hidden;
-    box-shadow: var(--avatar-border-color) 0 0 0 2px;
+    //box-shadow: var(--avatar-border-color) 0 0 0 2px;
+    //box-shadow: black 0 0 0 3px;
     transform: translateZ(0); /* fixed the zoom in Safari */
 
     @include bp.sm {
-      width: 7rem;
-      height: 7rem;
+      width: 8rem;
+      height: 8rem;
     }
 
     img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      //border-radius: 50%;
       transition: transform 0.5s;
 
       &:hover {
@@ -83,6 +88,10 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     padding-right: 1.25rem;
     width: 100%;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     @include bp.lg {
       margin-top: 3rem;
     }
@@ -94,30 +103,49 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     }
   }
 
+  .stamp {
+    //background-color: white;
+    //border: 2px solid black;
+    padding: 0.5rem; // Creates the margin around inner box
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    overflow-wrap: break-word;
+    margin-top: 0.5rem;
+    border-radius: 0;
+  }
+
+  .stamp-inner {
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .site-title {
     @extend %clickable-transition;
     @extend %sidebar-link-hover;
 
-    font-family: inherit;
-    font-weight: 1000; // max it out, go THICC
-    font-size: 3rem; // BIGGER
-    line-height: 1.2; // tighter vertical spacing
-    letter-spacing: 1px; // slight spread for boldness
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    width: fit-content;
-    color: var(--site-title-color);
+    display: inline-block; // required for transform
+    font-size: 2.5rem; // base size
+    transform: scaleY(1.6); // stretch vertically
+    transform-origin: center;
+    font-weight: 1000;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    // width: fit-content;
+    //color: var(--site-title-color);
+    //color: #c53727;
   }
 
   .site-subtitle {
-    font-size: 95%;
-    color: var(--site-subtitle-color);
-    margin-top: 0.25rem;
-    word-spacing: 1px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    font-size: 1.1rem; // Bigger than 95%
+    font-weight: 600; // Thicker (semi-bold)
+    margin-top: 0.75rem; // Adds breathing room below .site-title
+    word-spacing: 1px; // Keep your spacing
+    user-select: none; // Still prevents selection
+    text-align: center; // Optional, but looks cleaner if centered
   }
 
   ul {

@@ -58,32 +58,40 @@
     background-position: center;
   }
 
-  .stamp {
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 0;
-    padding: 0.5rem;
-    width: 100%; // Take full width of the parent
-    box-sizing: border-box; // Includes padding in width
-    text-align: center;
-    overflow-wrap: break-word;
-    margin-top: 1rem;
+  #avatar {
+    box-shadow: black 0 0 0 3px;
   }
 
-  .site-title {
-    color: black;
-    font-weight: bold;
-    font-size: 1rem;
-    text-transform: uppercase;
+  .stamp {
+    background-color: white;
+    //    border: 2px solid black;
+  }
+
+  .stamp-inner {
+    border: 3px solid black;
+    background-color: white; // Ensure inner remains white too
+  }
+
+  #sidebar .site-title {
+    color: #c53727;
+    //font-weight: bold;
+    //font-size: 0.9rem;
+    //text-transform: uppercase;
     text-decoration: none;
     display: block;
     margin-bottom: 0.25rem;
   }
 
-  .site-subtitle {
-    color: black;
-    font-size: 0.875rem;
-    margin: 0;
+  #sidebar .site-title:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.75); // black glow
+    //  text-shadow: 0 0 4px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+
+  #sidebar .site-subtitle {
+    color: #c53727;
+    //font-size: rem;
+    //margin: 0;
   }
 
   /* Topbar */
