@@ -17,9 +17,9 @@ timezone: America/Chicago
 title: br34chy # the main title
 
 tagline: |
-  leaky data. 
-  sloppy configs. 
-  breachy. # it will display as the subtitle
+  leaky data.<br>
+  sloppy configs.<br>
+  <strong>breachy.</strong>
 
 description: >- # used by seo meta and the atom feed
   just a sec blog
