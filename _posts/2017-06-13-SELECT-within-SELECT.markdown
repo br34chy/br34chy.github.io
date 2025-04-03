@@ -168,5 +168,5 @@ Only three countries that have gdp greater than every countries in Europe are US
 ## UPDATE (06/19/17) Go to [Using Derived Tables and Nested SELECT][Using Derived Tables and Nested SELECT] post before "SELECT Quiz"
 {: .redfont}
 
-[SQLZOO]:http://sqlzoo.net/
+[SQLZOO]:https://sqlzoo.net/
 [Using Derived Tables and Nested SELECT]: https://ngarciaiii.github.io/sql/2017/06/13/SELECT-within-SELECT/

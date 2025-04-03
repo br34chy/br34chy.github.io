@@ -182,4 +182,4 @@ That's the answer.
 
 
 
-[SQLZOO]:http://sqlzoo.net/
+[SQLZOO]:https://sqlzoo.net/

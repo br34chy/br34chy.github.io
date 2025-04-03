@@ -149,5 +149,5 @@ Notice `%..%`, it means placeholder is anywhere. So I searched for vowels anywhe
 Quiz should be easy! I am not going to cover them. I decided to try this [Find the duplicate][duplicate] game. It begs the question, why and what it has to do with the SQL? I am guessing, to improve our eagle eyes against overwhelming data. It's fun and challenging! My first score was 11, but didn't realize that not all has to match, just <strong>keys</strong>. My second attempt, its 15! On my third try, finished the game.  
 
 
-[SQLZOO]:http://sqlzoo.net/
-[duplicate]:http://sqlzoo.net/brain/bt.htm#
+[SQLZOO]:https://sqlzoo.net/
+[duplicate]:https://sqlzoo.net/brain/bt.htm#

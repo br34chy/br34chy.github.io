@@ -228,5 +228,5 @@ WHERE population > ALL (SELECT MAX(population) FROM bbc WHERE region = 'Europe')
 | India |
 | Pakistan |
 
-[SQLZOO]:http://sqlzoo.net/
+[SQLZOO]:https://sqlzoo.net/
 [Using Derived Tables and Nested SELECT]: https://ngarciaiii.github.io/sql/2017/06/19/Using-Derived-Tables-and-Nested-SELECT/

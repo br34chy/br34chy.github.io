@@ -142,4 +142,4 @@ WHERE name IN ('China', 'Australia', 'Nigeria', 'France')
 
 I think we have covered all usage of keywords, and I skipped the problem #6 because it is easy and involved with greater or lesser operators. Don't worry about it. We will continue on next exercise in different post!
 
-[SQLZOO]:http://sqlzoo.net/
+[SQLZOO]:https://sqlzoo.net/

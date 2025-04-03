@@ -105,4 +105,4 @@ I sure botched this quiz, but after doing blog on this, my confidence increased.
 
 
 
-[SQLZOO]:http://sqlzoo.net/
+[SQLZOO]:https://sqlzoo.net/

@@ -145,5 +145,5 @@ An actual language, implemented language. It does have a foundation relational a
 
 
 
-[SQLZOO]:http://sqlzoo.net/
+[SQLZOO]:https://sqlzoo.net/
 [Stanford University]:https://lagunita.stanford.edu/courses/DB/2014/SelfPaced/about
