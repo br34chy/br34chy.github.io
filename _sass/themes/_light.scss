@@ -32,18 +32,7 @@
     rgba(250, 250, 250, 0) 100%
   );
 
-  /* Sidebar */
-  --site-title-color: rgb(113, 113, 113);
-  --site-subtitle-color: #717171;
-  --sidebar-bg: #f6f8fa;
-  --sidebar-border-color: #efefef;
-  --sidebar-muted-color: #545454;
-  --sidebar-active-color: #1d1d1d;
-  --sidebar-hover-bg: rgb(223, 233, 241, 0.64);
-  --sidebar-btn-bg: white;
-  --sidebar-btn-color: #8e8e8e;
-  --avatar-border-color: white;
-
+  /*aside */
   aside#sidebar {
     background-image: url('/assets/img/miscs/LMtools1.png');
     background-size: contain;
@@ -57,41 +46,76 @@
     background-repeat: repeat-y;
     background-position: center;
   }
+  /* Sidebar */
+  --site-title-color: rgb(113, 113, 113);
+  --site-subtitle-color: #717171;
+  --sidebar-bg: #f6f8fa;
+  --sidebar-border-color: #efefef;
+  --sidebar-muted-color: #545454;
+  --sidebar-active-color: #1d1d1d;
+  --sidebar-hover-bg: rgb(223, 233, 241, 0.64);
+  --sidebar-btn-bg: white;
+  --sidebar-btn-color: #8e8e8e;
+  --avatar-border-color: white;
 
-  #avatar {
-    box-shadow: black 0 0 0 3px;
-  }
+  #sidebar {
+    #avatar {
+      box-shadow: black 0 0 0 3px;
+    }
 
-  .stamp {
-    background-color: white;
-    //    border: 2px solid black;
-  }
+    .stamp {
+      background-color: white;
+      //    border: 2px solid black;
+    }
 
-  .stamp-inner {
-    border: 3px solid black;
-    background-color: white; // Ensure inner remains white too
-  }
+    .stamp-inner {
+      border: 3px solid black;
+      background-color: white; // Ensure inner remains white too
+    }
 
-  #sidebar .site-title {
-    color: #c53727;
-    //font-weight: bold;
-    //font-size: 0.9rem;
-    //text-transform: uppercase;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 0.25rem;
-  }
+    .site-title {
+      color: #c53727;
+      //font-weight: bold;
+      //font-size: 0.9rem;
+      //text-transform: uppercase;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
 
-  #sidebar .site-title:hover {
-    transform: scale(1.05);
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.75); // black glow
-    //  text-shadow: 0 0 4px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 0, 0, 0.3);
-  }
+    .site-title:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.75); // black glow
+      //  text-shadow: 0 0 4px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 0, 0, 0.3);
+    }
 
-  #sidebar .site-subtitle {
-    color: #c53727;
-    //font-size: rem;
-    //margin: 0;
+    .site-subtitle {
+      color: #c53727;
+      //font-size: rem;
+      //margin: 0;
+    }
+
+    ul {
+      a.nav-link {
+        background-color: black;
+        color: white !important;
+
+        &:hover {
+          //   background-color: var(--sidebar-hover-bg);
+          background-color: #c53727;
+        }
+
+        &.active {
+          background-color: #c53727 !important;
+        }
+      }
+    }
+
+    .sidebar-bottom {
+      %button {
+        background-color: black;
+      }
+    }
   }
 
   /* Topbar */
