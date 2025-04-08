@@ -99,6 +99,16 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  &.active {
+    background-color: #c53727 !important;
+    color: white !important;
+  }
+
+  &:hover {
+    background-color: #c53727;
+    color: white;
+  }
 }
 
 %text-clip {

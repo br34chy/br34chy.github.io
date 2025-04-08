@@ -7,6 +7,31 @@ $btn-border-width: 3px;
 $btn-mb: 0.5rem;
 $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
 
+/*aside */
+aside#panel-wrapper {
+  section {
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+
+    a {
+      display: inline-block; // allows transform
+      font-size: 0.9rem; // or 18px if you prefer px
+      line-height: 1.3; // gives it nice breathing room
+      transition: transform 0.2s ease, background-color 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        font-weight: bold;
+      }
+    }
+
+    .d-flex {
+      justify-content: center;
+    }
+  }
+}
+
 #sidebar {
   @include mx.pl-pr(0);
 
@@ -126,6 +151,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
   }
 
   .site-title {
+    background: transparent !important;
     @extend %clickable-transition;
     @extend %sidebar-link-hover;
 
@@ -137,9 +163,6 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     letter-spacing: 1px;
     line-height: 1;
     margin-bottom: 0.5rem;
-    // width: fit-content;
-    //color: var(--site-title-color);
-    //color: #c53727;
   }
 
   .site-subtitle {
@@ -155,7 +178,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     margin-bottom: 2rem;
 
     li.nav-item {
-      opacity: 0.9;
+      opacity: 0.97;
       width: 100%;
 
       @include mx.pl-pr(1.5rem);
@@ -166,16 +189,13 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
 
       a.nav-link {
         @include mx.pt-pb(0.6rem);
-
         display: flex;
         align-items: center;
         border-radius: 0.75rem;
-        font-weight: 600;
-
-        // &:hover {
-        //   //   background-color: var(--sidebar-hover-bg);
-        //   background-color: #c53727;
-        // }
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
 
         i {
           font-size: 95%;

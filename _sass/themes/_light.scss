@@ -1,3 +1,7 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as mx;
+@use '../abstracts/breakpoints' as bp;
+
 @mixin styles {
   /* Framework color */
   --main-bg: white;
@@ -45,7 +49,54 @@
     background-size: contain;
     background-repeat: repeat-y;
     background-position: center;
+
+    section {
+      // background-color: #c53727;
+      background-color: black;
+
+      h2 {
+        color: white;
+      }
+
+      a {
+        color: white;
+        // display: inline-block; // allows transform
+        // font-size: 0.9rem; // or 18px if you prefer px
+        // line-height: 1.3; // gives it nice breathing room
+        // transition: transform 0.2s ease, background-color 0.3s ease;
+
+        // &:hover {
+        //   transform: scale(1.1);
+        // }
+      }
+
+      a.post-tag {
+        border: 2px solid white;
+        color: white;
+        background-color: transparent;
+        margin: 0.4rem 0.3rem;
+        transition: background-color 0.3s ease, outline 0.2s ease;
+
+        &:hover {
+          background-color: #c53727;
+          border-color: white;
+          transform: scale(1.1);
+          outline: 3px solid #ffaaaa;
+          outline-offset: 3px;
+        }
+
+        &:focus,
+        &:active {
+          outline: 3px solid #ffaaaa;
+          outline-offset: 3px;
+          box-shadow: none;
+          background-color: #c53727;
+          color: white;
+        }
+      }
+    }
   }
+
   /* Sidebar */
   --site-title-color: rgb(113, 113, 113);
   --site-subtitle-color: #717171;
@@ -96,24 +147,48 @@
     }
 
     ul {
-      a.nav-link {
-        background-color: black;
-        color: white !important;
+      margin-bottom: 2rem;
 
-        &:hover {
-          //   background-color: var(--sidebar-hover-bg);
-          background-color: #c53727;
+      li.nav-item {
+        background: none !important;
+        opacity: 0.97;
+        width: 100%;
+
+        @include mx.pl-pr(1.5rem);
+
+        @include bp.xxxl {
+          @include mx.pl-pr(2.75rem);
         }
 
-        &.active {
-          background-color: #c53727 !important;
+        a.nav-link {
+          background-color: black;
+
+          &.active {
+            background-color: #c53727 !important;
+            color: white;
+            font-size: 1.4rem; // or 1.1rem for more pop
+            font-weight: bold;
+          }
+
+          &:hover {
+            background-color: #c53727;
+            color: white;
+            font-size: 1.4rem; // or 1.1rem for more pop
+            font-weight: bold;
+          }
         }
       }
     }
 
     .sidebar-bottom {
-      %button {
-        background-color: black;
+      a {
+        background-color: #c53727;
+        color: white;
+      }
+
+      #mode-toggle {
+        background-color: #c53727;
+        color: white;
       }
     }
   }
