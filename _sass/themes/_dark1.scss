@@ -4,44 +4,40 @@
 
 @mixin styles {
   /* Archive (Dark Mode Overrides) */
-  --timeline-color: rgba(0, 0, 0, 0.08);
+  --timeline-color: rgba(255, 255, 255, 0.08);
   --timeline-node-bg: #3fb3ff;
-  --timeline-year-dot-color: #111;
-  --archive-bg-odd: rgba(255, 255, 255, 0.15);
-  --archive-bg-gradient: linear-gradient(
-    to left,
-    rgba(255, 255, 255, 0.18),
-    rgba(245, 245, 245, 0.12)
-  );
-  --archive-dot-glow: rgba(63, 179, 255, 0.2);
+  --timeline-year-dot-color: #ffffff;
+  --archive-bg-odd: #2a2a2a;
+  --archive-bg-gradient: linear-gradient(to left, #2a2a2a, #303030, #2a2a2a);
+  --archive-dot-glow: rgba(63, 179, 255, 0.4);
 
   /* Framework color */
-  --main-bg: #242424;
-  --mask-bg: #2d2d2d;
-  --main-border-color: #3a3a3a;
+  --main-bg: #2e2e2e;
+  --mask-bg: #3a3a3a;
+  --main-border-color: #4a4a4a;
 
   /* Common color */
-  --text-color: #f0f0f0;
-  --text-muted-color: #a8a8a8;
-  --text-muted-highlight-color: #c2c2c2;
+  --text-color: #f5f5f5;
+  --text-muted-color: #b0b0b0;
+  --text-muted-highlight-color: #d0d0d0;
   --heading-color: #ffffff;
-  --label-color: #cccccc;
-  --blockquote-border-color: #444;
-  --blockquote-text-color: #aaaaaa;
+  --label-color: #dddddd;
+  --blockquote-border-color: #555;
+  --blockquote-text-color: #bbbbbb;
   --link-color: #a4cafe;
   --link-underline-color: #5aaaff;
-  --button-bg: #323232;
-  --btn-border-color: #444;
-  --btn-backtotop-color: #dddddd;
-  --btn-backtotop-border-color: #555;
-  --checkbox-color: #777;
+  --button-bg: #3b3b3b;
+  --btn-border-color: #555;
+  --btn-backtotop-color: #e6e6e6;
+  --btn-backtotop-border-color: #666;
+  --checkbox-color: #888;
   --checkbox-checked-color: #3fb3ff;
-  --img-bg: radial-gradient(circle, #2d2d2d 0%, #242424 100%);
+  --img-bg: radial-gradient(circle, #3a3a3a 0%, #2e2e2e 100%);
   --shimmer-bg: linear-gradient(
     90deg,
-    rgba(55, 55, 55, 0) 0%,
-    rgba(75, 75, 75, 1) 50%,
-    rgba(55, 55, 55, 0) 100%
+    rgba(60, 60, 60, 0) 0%,
+    rgba(80, 80, 80, 1) 50%,
+    rgba(60, 60, 60, 0) 100%
   );
 
   aside#sidebar {
@@ -58,29 +54,21 @@
     background-position: center;
 
     section {
-      background-color: rgba(255, 255, 255, 0.9); /* translucent white */
-      backdrop-filter: blur(4px); /* more depth */
-      color: #1a1a1a; /* ensures text stays readable */
-      border-radius: 0.5rem;
-      padding: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      background-color: black;
 
       h2 {
-        color: #1a1a1a; /* ensures text stays readable */
+        color: white;
       }
 
       a {
-        color: #1a1a1a; /* ensures text stays readable */
+        color: white;
       }
 
       a.post-tag {
         border: 2px solid white;
-        color: #1a1a1a; /* ensures text stays readable */
+        color: white;
         background-color: transparent;
         margin: 0.4rem 0.3rem;
-        outline: 2px solid #ff8888;
-        outline-offset: 2px;
-        box-shadow: 0 0 6px rgba(255, 150, 150, 0.4);
         transition: background-color 0.3s ease, outline 0.2s ease,
           transform 0.2s ease;
 
@@ -118,11 +106,8 @@
   --avatar-border-color: white;
 
   #sidebar {
-    backdrop-filter: blur(4px);
-    background-color: rgba(36, 36, 36, 0.9);
-
     #avatar {
-      box-shadow: 0 0 0 1px white;
+      box-shadow: black 0 0 0 3px;
     }
 
     .stamp {
@@ -130,7 +115,7 @@
     }
 
     .stamp-inner {
-      border: 3px solid #1a1a1a;
+      border: 3px solid black;
       background-color: white;
     }
 
@@ -165,20 +150,17 @@
         }
 
         a.nav-link {
-          background-color: rgba(255, 255, 255, 0.85);
-          color: #1a1a1a;
-          padding: 0.6rem 1rem;
-          border-radius: 0.5rem;
-          backdrop-filter: blur(4px);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-          transition: all 0.3s ease;
+          background-color: black;
+          transition: background-color 0.2s ease, color 0.2s ease,
+            font-size 0.2s ease, transform 0.2s ease;
 
           &.active,
           &:hover {
-            background-color: #c53727;
+            background-color: #c53727 !important;
             color: white;
-            transform: scale(1.03) translateX(2px);
+            font-size: 1.4rem;
             font-weight: bold;
+            transform: translateX(2px);
           }
         }
       }
@@ -209,9 +191,9 @@
   --toc-popup-border-color: #444;
   --btn-share-color: #aaaaaa;
   --btn-share-hover-color: #3fb3ff;
-  --card-bg: #1f1f1f;
-  --card-hovor-bg: #2a2a2a;
-  --card-shadow: rgba(0, 0, 0, 0.3) 0 2px 6px;
+  --card-bg: #2b2b2b;
+  --card-hovor-bg: #3b3b3b;
+  --card-shadow: rgba(0, 0, 0, 0.4) 0 2px 6px;
   --footnote-target-bg: #003f5c;
   --tb-odd-bg: #333;
   --tb-border-color: #555;
@@ -231,10 +213,10 @@
 
   /* Code & Syntax Highlighting */
   --language-border-color: #444;
-  --highlight-bg-color: #1a1a1a;
+  --highlight-bg-color: #1e1e1e;
   --highlight-lineno-color: #5e5e5e;
   --highlighter-rouge-color: #c9d1d9;
-  --inline-code-bg: rgba(255, 255, 255, 0.04);
+  --inline-code-bg: rgba(255, 255, 255, 0.05);
   --code-color: #c9d1d9;
   --code-header-text-color: #a3a3a3;
   --code-header-muted-color: #555;
