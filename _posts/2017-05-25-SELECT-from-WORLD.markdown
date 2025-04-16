@@ -2,7 +2,7 @@
 layout: post
 title:  "SELECT from WORLD"
 date:   2017-05-25 00:00:30
-categories: Programming
+categories: Archives
 tags: [SQL]
 years: ['2017']
 comments: true

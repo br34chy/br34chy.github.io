@@ -2,7 +2,7 @@
 layout: post
 title:  "Intro to Java"
 date:   2017-04-19 3:02:30 -0400
-categories: Programming
+categories: Archives
 tags: [java]
 commets: true
 years: ['2017']
