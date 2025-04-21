@@ -2,7 +2,7 @@
 layout: post
 title: "Setting up Selenium in Visual Studio Code on MacOs with Apple Chip M1"
 date: 2021-11-03 19:08:30 -0400
-categories: Archives
+categories: [Archives, tools] 
 tags: [QA]
 years: ['2021']
 comments: true

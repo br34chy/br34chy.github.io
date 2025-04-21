@@ -2,7 +2,7 @@
 layout: post
 title: "Black Belt Text-Fu"
 date: 2022-05-19 00:00:00 -0400
-categories: Linux
+categories: [Archives, linux] 
 tags: [Basics]
 years: ['2022']
 comments: true

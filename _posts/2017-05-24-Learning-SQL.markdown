@@ -2,7 +2,7 @@
 layout: post
 title:  "Learning SQL"
 date:   2017-05-24 12:30:30
-categories: Archives
+categories: [Archives, programming] 
 tags: [SQL]
 years: ['2017']
 comments: true

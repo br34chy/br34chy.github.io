@@ -11,5 +11,6 @@ order: 4
 
 ## 🧠 **Credits**
 
-Where credit is due, thank you to **Nyra** for all her helps. I am a n00b with a massive help of a real deal l33t hacker. I learn many of tradecrafts from her and she has my gratitude. 
+Where credit is due, thank you to **Nyra** for all her helps. I am a n00b with a massive help from a real deal l33t hacker. I learn many of tradecrafts from her and she has my gratitude. 
 
+![about](/assets/img//miscs/about.png)

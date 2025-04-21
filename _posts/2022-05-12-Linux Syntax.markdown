@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Syntax"
 date: 2022-05-12 10:34:00 -0400
-categories: Linux
+categories: [Archives, linux] 
 tags: [Basics]
 years: ['2022']
 comments: true

@@ -2,7 +2,7 @@
 layout: post
 title:  "Using Derived Tables and Nested SELECT"
 date:   2017-06-19 11:48:30
-categories: Archives
+categories: [Archives, programming] 
 tags: [SQL]
 years: ['2017']
 comments: true

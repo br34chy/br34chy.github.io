@@ -2,7 +2,7 @@
 layout: post
 title: "Prepping for OSCP"
 date: 2022-05-11 06:34:00 -0400
-categories: PWK
+categories: [Archives] 
 tags: [OSCP]
 years: ['2022']
 comments: true

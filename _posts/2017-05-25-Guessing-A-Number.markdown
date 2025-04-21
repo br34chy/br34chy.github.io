@@ -2,7 +2,7 @@
 layout: post
 title:  "Guessing A Number"
 date:   2017-05-25 05:56:30
-categories: Archives
+categories: [Archives, programming] 
 tags: [java]
 years: ['2017']
 comments: true

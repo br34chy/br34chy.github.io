@@ -2,7 +2,7 @@
 layout: post
 title:  "Profile LookUp"
 date:   2016-09-17 14:23:30 -0400
-categories: Archives
+categories: [Archives, programming] 
 tags: [javascript]
 years: ['2016']
 comments: true

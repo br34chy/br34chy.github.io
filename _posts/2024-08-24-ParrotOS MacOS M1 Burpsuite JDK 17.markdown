@@ -2,7 +2,7 @@
 layout: post
 title: "ParrotOS MacOS M1 Burpsuite JDK 17"
 date: 2024-08-24 00:00:00 -0400
-categories: Linux
+categories: [Archives, tools]
 tags: [Fixes]
 years: ['2024']
 comments: true

@@ -2,7 +2,7 @@
 layout: post
 title: "OSCP Main Thing"
 date: 2022-06-01 00:00:00 -0400
-categories: PWK
+categories: [Archives, linux] 
 tags: [OSCP]
 years: ['2022']
 comments: true

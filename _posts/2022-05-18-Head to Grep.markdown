@@ -2,7 +2,7 @@
 layout: post
 title: "Head to Grep"
 date: 2022-05-18 09:00:00 -0400
-categories: Linux
+categories: [Archives, linux] 
 tags: [Basics]
 years: ['2022']
 comments: true

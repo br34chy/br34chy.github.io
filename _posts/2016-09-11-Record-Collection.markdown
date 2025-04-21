@@ -2,7 +2,7 @@
 layout: post
 title:  "Record Collection"
 date:   2016-09-11 18:07:30 -0400
-categories: Archives
+categories: [Archives, programming] 
 tags: [javascript]
 years: ['2016']
 comments: true

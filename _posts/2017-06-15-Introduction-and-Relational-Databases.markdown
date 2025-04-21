@@ -2,7 +2,7 @@
 layout: post
 title:  "Introduction and Relational Databases"
 date:   2017-06-15 08:09:30
-categories: Archives
+categories: [Archives, programming] 
 tags: [SQL]
 years: ['2017']
 comments: true
