@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Lesson 1: Fundamental Security Concepts"
+title: "Studying for Security+ Exam"
 date: 2025-05-21 00:00:00 -0400
 categories: [Certificates, Security+]
 tags: [Fixes]
@@ -8,93 +8,148 @@ years: ['2025']
 comments: true
 ---
 
-## Parrot OS unable to open Burpsuite
+## Big kudos to fishlover7!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5IwNUSnOybU?si=xDmDNb_p3sWbzr1u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 <br>
-Probably see this when tried to open up a BurpSuite on Parrot OS. It seems that Parrot OS is currently limited to JDK 17. What we will do is downgrade BurpSuite to be compatiable. 
+Redditor **fishlove7** put in serious work crafting the **Ultimate CompTIA SY0-701 Security+ Study Guide**. The fish's real name? **Christian Joseph Miranda** as it is written in the very first page of a study guide! Please give him a upvote in this [Reddit link][Reddit link]; the guide is included there too.
 
-![burp_err](/assets/img//blog/burp_err.png)
+![fishlover7](/assets/img//blog/Certificates/fishlove7.png)
 
-## Step 1 Download Burp Community Edition 2021.10.2
-
-Google "Burp Archive Releases, click on the first link [Archive][Archive]
-
-![burp_err](/assets/img//blog/archive.png)
-
-Click on year "2021" and then scroll down to "Professional / Community 2021.10.2" which is highlighted in orange below in the image or click on this link [BurpSuite 2021.10.2][BurpSuite 2021.10.2]
 <br>
+There are about **15 lessons** in that study guide with **437 pages**. I will not be noting down everything here. **I blog the key takeaways I think are worth remembering from the study guide.** I will also measure my knowledge by answering all questions from here [ExamCompass][ExamCompass]. As a matter of fact, I will do one right now to see how I do. **I've been a QA for 4 years and a Pen Tester for a year.** 
 
-![burp_err](/assets/img//blog/burp_10_2.png)
+![ec1](/assets/img/blog/Certificates/examcompass1.png)
 
-**NOTE**: Select "Community" and "JAR" before downloading.
+Whelp! I didn't do well. ExamCompass has about 24 different quizzes, each with 25 questions. The actual Security+ exam... its 90 questions in 90 minutes. Basically a minute per question. Most are multiple choices. Some will ask you to select 3 answers out of five which really slows things down.<span style="color:red"> **If got two right and one wrong, then the whole question is counted as wrong.**</span> Gotta to know your stuff to breeze through quickly.
+
+Each Security+ post here will focus on one or few lessons, plus a ExamCompass quiz. I did quiz 1 today and I noted down what I learned from it. 
+
 <br>
+### ExamCompass Quiz 1 notes:
 
-![burp_err](/assets/img//blog/Community_JAR.png)
+**describe technical security controls:** <br>
+1) Sometimes called logical security controls <--- <span style="color:green">I got this right</span><br>
+2) Executed by computer systems (instead of people) <--- <span style="color:red">I didn't select this</span> <br>
+3) Implemented with technology <--- <span style="color:green">I got this right</span>
 
-## Step 2 Install BurpSuite 2021.10.2
-<br>
-```bash
-user@parrot[~/]:~$ cd Downloads
+**technical security controls examples:** <br>
+1) Encryption <--- <span style="color:green">I got this right</span> <br>
+2) IDS <--- <span style="color:red">I didn't select this</span> <br>
+3) Firewalls <--- <span style="color:green">I got this right</span>
 
-user@parrot[~/Downloads/]:~$ ls
-burpsuite_community_v2021.10.2.jar
+**describe managerial security controls:** <br>
+1) Also known as administrative controls <--- <span style="color:green">I got this right</span> <br>
+2) Focused on reducing security incidents <--- <span style="color:red">I didn't select this</span> <br>
+3) Documented in written policies <--- <span style="color:green">I got this right</span>
 
-user@parrot[~/Downloads/]:~$ sudo mv burpsuite_community_v2021.10.2.jar /usr/share/burpsuite/
-```
-<br>
+**describe managerial security controls:** <br>
+1) Also known as administrative controls <--- <span style="color:green">I got this right</span> <br>
+2) Focused on reducing security incidents <--- <span style="color:red">I didn't select this</span> <br>
+3) Documented in written policies <--- <span style="color:green">I got this right</span>
 
-Now google "burp JDK 17" and then click on the first link or here [Burp_JDK17][Burp_JDK17]
+**managerial security controls examples:** <br>
+1) Organizational security policy <--- <span style="color:green">I got this right</span> <br>
+2) Risk assessments <--- <span style="color:green">I got this right</span> <br>
+3) Security awareness training <--- <span style="color:green">I got this right</span>
 
-![Burp_JDK17](/assets/img//blog/Burp_JDK17.png)
-<br>
+**describe operational security controls:** <br>
+1) Focused on the day-to-day procedures of an organization <--- <span style="color:red">I didn't select this</span> <br>
+2) Used to ensure that the equipment continues to work as specified <--- <span style="color:green">I got this right</span> <br>
+3) Primiarily implemented and executed by people (opposite to computer system) <--- <span style="color:green">I got this right</span>
 
-Scroll down and copy the highlighted command from the forum as shown below
-![BurpJDK17_forum](/assets/img//blog/BurpJDK17_forum.png)
+**operational security controls examples:** <br>
+1) Configuration management <--- <span style="color:red">I didn't select this</span> <br>
+2) System backups <--- <span style="color:green">I got this right</span> <br>
+3) Patch management <--- <span style="color:green">I got this right</span>
 
-**NOTE:** be sure to change from `_pro_` to `_community_` in the command
+**which refers to security controls designed to deter, detect, and prevent unauthorized access, theft, damage, or destruction of material assets?**<br>
+<span style="color:red">incorrect answer:</span> managerial security controls<br>
+<span style="color:green">correct answer:</span> physical security controls
 
-**NOTE:** need add `/usr/share/burpsuite/` after last `UNAMED` as shown below in bash
+**NOT EXAMPLES of physical security controls:**<br>
+1) Data backups <--- <span style="color:green">I got this right</span> <br>
+2) Firewalls <--- <span style="color:green">I got this right</span> <br>
+3) Asset management <--- <span style="color:green">I got this right</span> <br>
 
-```bash
-java -jar --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.desktop/javax.swing=ALL-UNNAMED /usr/share/burpsuite/burpsuite_community_v2021.10.2.jar
-```
-<br>
+**physical security controls examples:**<br>
+1) Lighting<br>
+2) Access control vestibules<br>
+3) Fencing/Bollards/Barricades<br>
+4) Security guards
 
+**preventive security controls examples:**<br>
+1) Ecryption <--- <span style="color:green">I got this right</span> <br>
+2) Firewalls <--- <span style="color:green">I got this right</span> <br>
+3) AV software <--- <span style="color:green">I got this right</span>
 
-## Ta-Da it worked!
+**deterrent security controls examples:**<br>
+1) Warning signs <--- <span style="color:green">I got this right</span> <br>
+2) Lighting <--- <span style="color:red">I didn't select this</span> <br>
+3) Fencing/Bollards <--- <span style="color:red">I didn't select this</span>
 
-![burp_worked](/assets/img//blog/burp_worked.png)
-
-## Last Step, alias burp command
-
-```bash
-user@parrot[~/]:~$ cat ~/.bash_aliases
-cat: /home/user/.bash_aliases: No such file or directory
-
-user@parrot[~/]:~$ touch ~/.bash_aliases
-
-user@parrot[~/]:~$ sudo nano ~/.bash_aliases
-```
-
-Insert command inside `~/.bash_aliases`
-
-```bash
-alias burp='java -jar --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.desktop/javax.swing=ALL-UNNAMED /usr/share/burpsuite/burpsuite_community_v2021.10.2.jar'
-```
-
-Almost done!
-
-```bash
-user@parrot[~/]:~$ source ~/.bash_aliases
-
-user@parrot[~/]:~$ burp
-```
-![burp](/assets/img//blog/burp.png)
+**which refers to detective security controls:**<br>
+1) Log monitoring <--- <span style="color:green">I got this right</span> <br>
+2) Security Audits <--- <span style="color:green">I got this right</span> <br>
+3) CCTV <--- <span style="color:red">I didn't select this</span> <br>
+4) IDS <--- <span style="color:red">I didn't select this</span> <br>
+5) Vulnerability scanning <--- <span style="color:green">I got this right</span>
 
 
-[Archive]:https://portswigger.net/burp/releases/archive
-[BurpSuite 2021.10.2]:https://portswigger.net/burp/releases/professional-community-2021-10-2
-[Burp_JDK17]:https://forum.portswigger.net/thread/run-burp-on-openjdk-17-5611cb564e50e
+**which refers to corrective security controls:**<br>
+1) Recovering data from backup copies <--- <span style="color:green">I got this right</span> <br>
+2) Applying software updates and patches to fix vulnerabilities <--- <span style="color:green">I got this right</span> <br>
+3) Developing and implementing IRPs to respond to and recover from security incidents <--- <span style="color:red">I didn't select this</span> <br>
+4) Activating and executing DRPs to restore operations after a major incident <--- <span style="color:green">I got this right</span>
+
+**which refers to compensating security controls:**<br>
+1) Backup power system <--- <span style="color:green">I got this right</span> <br>
+2) MFA <--- <span style="color:red">I didn't select this</span> <br>
+3) Application sandboxing <--- <span style="color:green">I got this right</span><br>
+4) Network segmentation <--- <span style="color:green">I got this right</span>
+
+**term "Directive security controls" refers to the category of security controls that are implemented through policies and procedures:**<br>
+answer: true  <--- <span style="color:green">I got this right</span>
+
+**which terms fall into category of directive security controls:**<br>
+1) IRP <--- <span style="color:green">I got this right</span><br>
+2) AUP <--- <span style="color:red">I didn't select this</span> 
+
+**which terms describe the basic principles of information security:**<br>
+1) CIA <--- <span style="color:green">I got this right</span><br>
+
+**"Non-repudiation" descirbes inability to deny responsibility for performing a specific action. In context of data security, non-repudiation ensures data confidentiality, provides proof of data integrity, and proof of data origin:**<br>
+answer: false <--- <span style="color:red">I didn't select this</span> 
+
+**Which best applies to the concept of non-repudiation:**<br>
+answer: Digital certificate  <--- <span style="color:green">I got this right</span>
+
+**which type of user account violates the concept of non-repudiation:**<br>
+answer: Shared account <--- <span style="color:red">I didn't select this</span>
+
+**Each A in AAA stands for:**<br>
+1) Authenication, verification of identity of a person or process <--- <span style="color:green">I got this right</span><br>
+2) Authorization, granting or denying access to resources <--- <span style="color:green">I got this right</span><br>
+3) Accounting, tracking accessed services and logging consumption <--- <span style="color:green">I got this right</span>
+
+**which solutions provide AAA functionality:**<br>
+1) TACACS+ <--- <span style="color:red">I didn't select this</span><br>
+2) RADIUS <--- <span style="color:green">I got this right</span>
+
+**in context of AAA framework, common methods for authenticating people include:**<br>
+1) Usernames and passwords <--- <span style="color:green">I got this right</span><br>
+2) Biometrics <--- <span style="color:green">I got this right</span><br>
+3) MFA <--- <span style="color:green">I got this right</span>
+
+**Which answers refer to common methods of device authentication used within AAA framework:**<br>
+1) Digital certificates <--- <span style="color:red">I didn't select this</span><br>
+2) IP addresses <--- <span style="color:red">I didn't select this</span><br>
+3) MAC addresses <--- <span style="color:red">I didn't select this</span><br>
+
+I must have misread the last question. I overlooked "device", answers are pretty obvious. 
+
+
+[Reddit link]:https://www.reddit.com/r/CompTIA/comments/1i1bcvh/heres_my_study_guide_for_security_sy0701/
+[ExamCompass]:http://www.examcompass.com/comptia/security-plus-certification/free-security-plus-practice-tests#google_vignette
 
