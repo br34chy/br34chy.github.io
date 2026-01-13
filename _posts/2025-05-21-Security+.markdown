@@ -3,7 +3,7 @@ layout: post
 title: "Studying for Security+ Exam"
 date: 2025-05-21 00:00:00 -0400
 categories: [Certificates, Security+]
-tags: [Fixes]
+tags: [Study]
 years: ['2025']
 comments: true
 ---
