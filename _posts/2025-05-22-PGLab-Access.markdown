@@ -18,36 +18,36 @@ comments: true
 
 Service enumeration revealed an **Active Directory** environment, with standard domain services exposed (**DNS, Kerberos, LDAP, SMB**).
 
-![nmap1](/assets/img/blog/PGlabs/Resourced/nmap1.png)
+![nmap1](/assets/img/blog/PGLabs/Resourced/nmap1.png)
 
 `Enum4linux` discovered a **low-privileged domain user** with a default password, providing an **initial foothold**.
 
-![enum4linux](/assets/img/blog/PGlabs/Resourced/enum4linux.png)
+![enum4linux](/assets/img/blog/PGLabs/Resourced/enum4linux.png)
 
 ## SMB Enumeration
 
 Tested **anonymous access**, followed by authentication using the discovered user with a default password.
 
-![smbclient](/assets/img/blog/PGlabs/Resourced/smbclient.png)
-![smbrecursels](/assets/img/blog/PGlabs/Resourced/smbrecursels.png)
+![smbclient](/assets/img/blog/PGLabs/Resourced/smbclient.png)
+![smbrecursels](/assets/img/blog/PGLabs/Resourced/smbrecursels.png)
 
 The `ntds.dit` file was exposed via a **misconfigured SMB share**, allowing it to be retrieved without prior **domain administrator privileges**.
 
-![smbget](/assets/img/blog/PGlabs/Resourced/smbget.png)
+![smbget](/assets/img/blog/PGLabs/Resourced/smbget.png)
 
 
 ## Credential Access
 
 Extracted `SAM` and `SYSTEM` hives to recover **local account hashes**; `SECURITY` was not required.
 
-![impacket-secretsdump](/assets/img/blog/PGlabs/Resourced/impacket-secretsdump.png)
-![hashes](/assets/img/blog/PGlabs/Resourced/hashes.png)
-![crackstation](/assets/img/blog/PGlabs/Resourced/crackstation.png)
+![impacket-secretsdump](/assets/img/blog/PGLabs/Resourced/impacket-secretsdump.png)
+![hashes](/assets/img/blog/PGLabs/Resourced/hashes.png)
+![crackstation](/assets/img/blog/PGLabs/Resourced/crackstation.png)
 
 Identified a user account with **valid hash-based authentication**.
 
-![crackmapexe1](/assets/img/blog/PGlabs/Resourced/crackmapexec_command.png)
-![crackmapexe2](/assets/img/blog/PGlabs/Resourced/crackmapexec_result.png)
+![crackmapexe1](/assets/img/blog/PGLabs/Resourced/crackmapexec_command.png)
+![crackmapexe2](/assets/img/blog/PGLabs/Resourced/crackmapexec_result.png)
 
 Although both local and domain-related artifacts were collected, only the recovered hashes that authenticated successfully against **domain resources** were used for further access.
 
@@ -55,8 +55,8 @@ Although both local and domain-related artifacts were collected, only the recove
 
 `ItachiUchiha` with cracked password disconnected repeatedly; switched to `L.Livingstone` using **pass-the-hash**.
 
-![evilwinrm](/assets/img/blog/PGlabs/Resourced/evilwinrm.png)
-![evilwinrm_priv](/assets/img/blog/PGlabs/Resourced/evilwinrm_priv.png)
+![evilwinrm](/assets/img/blog/PGLabs/Resourced/evilwinrm.png)
+![evilwinrm_priv](/assets/img/blog/PGLabs/Resourced/evilwinrm_priv.png)
 
 `l.livingstone` is not a local or domain administrator but possessed the `SeMachineAccountPrivilege`, which allows the creation of computer accounts in the domain.
 
@@ -74,22 +74,22 @@ This escalation path was selected based on delegated privileges observed during 
 
 **SharpHound** was executed on the compromised host, and the resulting ZIP was transferred and ingested into **BloodHound** for local analysis.
 
-![sharphound](/assets/img/blog/PGlabs/Resourced/sharphound.png)
-![bloodhound](/assets/img/blog/PGlabs/Resourced/bloodhound.png)
-![GenericAll](/assets/img/blog/PGlabs/Resourced/GenericAll.png)
+![sharphound](/assets/img/blog/PGLabs/Resourced/sharphound.png)
+![bloodhound](/assets/img/blog/PGLabs/Resourced/bloodhound.png)
+![GenericAll](/assets/img/blog/PGLabs/Resourced/GenericAll.png)
 
 **PowerView** was used to inspect **ACLs** on the target object, confirming inherited **ACEs** that granted **excessive control**. The final ACE was inherited (`IsInherited`, `ContainerInherit`) and mapped to `SID 519` (**Enterprise Admins**).
 
-![powerviewps1](/assets/img/blog/PGlabs/Resourced/powerviewps1.png)
-![ACEs](/assets/img/blog/PGlabs/Resourced/ACEs.png)
+![powerviewps1](/assets/img/blog/PGLabs/Resourced/powerviewps1.png)
+![ACEs](/assets/img/blog/PGLabs/Resourced/ACEs.png)
 
 ## Privilege Escalation
 
-![impacket-addcomputer](/assets/img/blog/PGlabs/Resourced/impacket-addcomputer.png)
-![rbcd](/assets/img/blog/PGlabs/Resourced/rbcd.png)
-![impacket-getST](/assets/img/blog/PGlabs/Resourced/impacket-getST.png)
-![etchost](/assets/img/blog/PGlabs/Resourced/etchost.png)
-![impacket-psexec](/assets/img/blog/PGlabs/Resourced/impacket-psexec.png)
+![impacket-addcomputer](/assets/img/blog/PGLabs/Resourced/impacket-addcomputer.png)
+![rbcd](/assets/img/blog/PGLabs/Resourced/rbcdattack.png)
+![impacket-getST](/assets/img/blog/PGLabs/Resourced/impacket-getST.png)
+![etchost](/assets/img/blog/PGLabs/Resourced/etchost.png)
+![impacket-psexec](/assets/img/blog/PGLabs/Resourced/impacket-psexec.png)
 
 This resulted in execution with SYSTEM-level privileges on a domain controller, completing domain compromise.
 
