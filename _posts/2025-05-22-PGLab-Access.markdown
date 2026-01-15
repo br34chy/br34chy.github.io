@@ -18,7 +18,7 @@ comments: true
 
 Service enumeration revealed an **Active Directory** environment, with standard domain services exposed (**DNS, Kerberos, LDAP, SMB**).
 
-![nmap](/assets/img/blog/PGlabs/Resourced/nmap.png)
+![nmap1](/assets/img/blog/PGlabs/Resourced/nmap1.png)
 
 `Enum4linux` discovered a **low-privileged domain user** with a default password, providing an **initial foothold**.
 
