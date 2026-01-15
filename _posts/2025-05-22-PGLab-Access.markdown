@@ -86,7 +86,7 @@ This escalation path was selected based on delegated privileges observed during 
 ## Privilege Escalation
 
 ![impacket-addcomputer](/assets/img/blog/PGlabs/Resourced/impacket-addcomputer.png)
-![rbcdattack](/assets/img/blog/PGlabs/Resourced/rbcdattack.png)
+![rbcd](/assets/img/blog/PGlabs/Resourced/rbcd.png)
 ![impacket-getST](/assets/img/blog/PGlabs/Resourced/impacket-getST.png)
 ![etchost](/assets/img/blog/PGlabs/Resourced/etchost.png)
 ![impacket-psexec](/assets/img/blog/PGlabs/Resourced/impacket-psexec.png)
