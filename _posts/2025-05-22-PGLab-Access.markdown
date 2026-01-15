@@ -10,7 +10,7 @@ comments: true
 
 ## Delegation Misconfig and Remedy
 
-![resourced_descr](/assets/img/blog/PGlabs/Resourced/resourced_descr.PNG)
+![resourced_descr](./assets/img/blog/PGlabs/Resourced/resourced_descr.PNG)
 
 **Resourced (PG Lab)** demonstrates a classic **Active Directory delegation abuse** path that leads from a low-privileged domain user to **Domain Admin** via **Resource-Based Constrained Delegation (RBCD)**. This write-up focuses on the attack chain, why it works, and how to remediate after impact is proven. This lab follows a known RBCD abuse path; **[Dpsypher][Dpsypher]'s public write-up** was used as a reference during analysis.
 
@@ -18,11 +18,11 @@ comments: true
 
 Service enumeration revealed an **Active Directory** environment, with standard domain services exposed (**DNS, Kerberos, LDAP, SMB**).
 
-![nmap](/assets/img/blog/PGlabs/Resourced/nmap.png)
+![nmap](./assets/img/blog/PGlabs/Resourced/nmap.png)
 
 `Enum4linux` discovered a **low-privileged domain user** with a default password, providing an **initial foothold**.
 
-![enum4linux](/assets/img/blog/PGlabs/Resourced/enum4linux.png)
+![enum4linux](./assets/img/blog/PGlabs/Resourced/enum4linux.png)
 
 ## SMB Enumeration
 
