@@ -10,7 +10,7 @@ comments: true
 
 ## Delegation Misconfig and Remedy
 
-![resourced_descr](https://raw.githubusercontent.com/br34chy/br34chy.github.io/main/assets/img/blog/PGlabs/Resourced/resourced_descr.png)
+![resourced_descr](/assets/img/blog/PGlabs/Resourced/resourced_descr.PNG)
 
 **Resourced (PG Lab)** demonstrates a classic **Active Directory delegation abuse** path that leads from a low-privileged domain user to **Domain Admin** via **Resource-Based Constrained Delegation (RBCD)**. This write-up focuses on the attack chain, why it works, and how to remediate after impact is proven. This lab follows a known RBCD abuse path; **[Dpsypher][Dpsypher]'s public write-up** was used as a reference during analysis.
 
