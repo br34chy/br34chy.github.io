@@ -104,26 +104,26 @@ This resulted in execution with SYSTEM-level privileges on a domain controller, 
     1. Never `Everyone`
     2. no authenticated user unless required
     3. seperate read and write access
-    3. read-only access is still exposed
+    4. read-only access is still exposed
 
-3) **No backup or sensitive artifacts in SMB shares**
+3. **No backup or sensitive artifacts in SMB shares**
     1. audits shouldn't be stored there
     2. backup location should be restricted to Backup Operators only
 
-4) **Remove SeMachineAccountPrivilege from standard users**
+4. **Remove SeMachineAccountPrivilege from standard users**
     1. remove `SeMachineAccountPrivilege` from standard users
     2. remove it from service accounts
     3. restrict it to Domain Admins only
 
-5) **Audit and restrict RBCD permissions**
+5. **Audit and restrict RBCD permissions**
     1. regularly audit `msDS-AllowedToActOnBehalfOfOtherIdentity`
     2. prevent non-admin users from modifying delegation setting
 
-6) **Limit computer accounts to prevent new created account**
+6. **Limit computer accounts to prevent new created account**
     1. set `ms-DS-MachineAccountQuota` to `0`
     2. Delegate computer creation to dedicated provisioning accounts
 
-7) **Disable legacy NTLM authentication**
+7. **Disable legacy NTLM authentication**
     1. reduce or disable NTLM usage
     2. enforce Kerberos hardening
     3. monitor pass-the-hash activity
