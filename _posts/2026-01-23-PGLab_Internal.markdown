@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "PG Lab - Resourced"
-date: 2025-12-08 00:00:00 -0400
+date: 2026-01-23 00:00:00 -0400
 categories: [Labs, Proving Grounds]
 tags: [Active Directory]
-years: ['2025']
+years: ['2026']
 comments: true
 ---
 
