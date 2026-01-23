@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PG Lab - Resourced"
+title: "PG Lab - Internal"
 date: 2026-01-23 00:00:00 -0400
 categories: [Labs, Proving Grounds]
 tags: [Active Directory]
@@ -8,125 +8,49 @@ years: ['2026']
 comments: true
 ---
 
-## Delegation Misconfig and Remedy
+## Exploited Without Metasploit, Yet Befuddled
 
-![labdescr](/assets/img/blog/PGLabs/Resourced/labdescr.png)
+![labdescr](/assets/img/blog/PGLabs/Internal/labdescr.png)
 
-**Resourced (PG Lab)** demonstrates a classic **Active Directory delegation abuse** path that leads from a low-privileged domain user to **Domain Admin** via **Resource-Based Constrained Delegation (RBCD)**. This write-up focuses on the attack chain, why it works, and how to remediate after impact is proven. This lab follows a known RBCD abuse path; **[Dpsypher][Dpsypher]'s public write-up** was used as a reference during analysis.
+**Internal (PG Lab)** machine was compromised **without Metasploit** on a MacBook Pro. Replicating the same process on a PC failed. Environmental might be the issue rather than exploit-related. This write-up focuses on *why* that discrepancy occurred and concludes with a remedy.
 
-## Initial Enumeration
+I'm no expert, PG lab walkthroughs on Medium are usually reviewed before diving in. With this machine, almost everyone resorted to `msfconsole`. Except for **[kh@n][kh@n]**. The *result* was there, the *how* wasn't.  
 
-Service enumeration revealed an **Active Directory** environment, with standard domain services exposed (**DNS, Kerberos, LDAP, SMB**).
+![kh@n](/assets/img/blog/PGLabs/Internal/kh@n.png)
 
-![nmap1](/assets/img/blog/PGLabs/Resourced/nmap1.png)
+His walkthrough noted that the shellcode length exactly matched the original through NOP padding (`\x90`), which was replicated.
 
-`Enum4linux` discovered a **low-privileged domain user** with a default password, providing an **initial foothold**.
+![comment](/assets/img/blog/PGLabs/Internal/nopad.png)
 
-![enum4linux](/assets/img/blog/PGLabs/Resourced/enum4linux.png)
+Despite matching the shellcode and reusing his `rpcclient` NULL session command, access was not obtained. A reread of the post revealed no obvious reason the exploit should fail.
 
-## SMB Enumeration
+A review of **[Dpsypher][Dpsypher]**’s walkthrough revealed a comment by Joaquin Argas, who did not publish a full write-up.
 
-Tested **anonymous access**, followed by authentication using the discovered user with a default password.
+![comment](/assets/img/blog/PGLabs/Internal/comment.png)
 
-![smbclient](/assets/img/blog/PGLabs/Resourced/smbclient.png)
-![smbrecursels](/assets/img/blog/PGLabs/Resourced/smbrecursels.png)
+The only hint in the comment referenced `python2`. While python2 itself could not be installed, `python2.7` was available and installed system-wide, along with `get-pip.py` and `pysmb`. This approach did not succeed. After reverting to `Python3` and retrying, the result was an **NT_STATUS_NOT_FOUND** error, even though the listener reported a connection. I dug a bit more and came across a relevant comment on the [HTB forum][HTB forum] by Rachel Gomez.
 
-The `ntds.dit` file was exposed via a **misconfigured SMB share**, allowing it to be retrieved without prior **domain administrator privileges**.
+![NTSNF](/assets/img/blog/PGLabs/Internal/NTSNF.png)
 
-![smbget](/assets/img/blog/PGLabs/Resourced/smbget.png)
+This pointed away from network reachability and toward how the **client interacted with the server**. On Debian-based systems, this raised suspicion of missing client-side SMB tooling. The package most likely responsible appeared to be `samba-common-bin`. Additional packages such as `smbclient`, `impacket-scripts`, and `python3-impacket` were installed to eliminate other variables.
 
+![dependencies](/assets/img/blog/PGLabs/Internal/dependencies.png)
 
-## Credential Access
+I went for one more attempt and was on the brink of giving in to Metasploit. Initially, the attempt appeared unsuccessful.
 
-Extracted `SAM` and `SYSTEM` hives to recover **local account hashes**; `SECURITY` was not required.
+![failornot](/assets/img/blog/PGLabs/Internal/failornot.png)
 
-![impacket-secretsdump](/assets/img/blog/PGLabs/Resourced/impacket-secretsdump.png)
-![hashes](/assets/img/blog/PGLabs/Resourced/hashes.png)
-![crackstation](/assets/img/blog/PGLabs/Resourced/crackstation.png)
+The listener connected and access was obtained! 
 
-Identified a user account with **valid hash-based authentication**.
+![connected1](/assets/img/blog/PGLabs/Internal/connected1.png)
 
-![crackmapexe1](/assets/img/blog/PGLabs/Resourced/crackmapexec_command.png)
-![crackmapexe2](/assets/img/blog/PGLabs/Resourced/crackmapexec_result.png)
+The flag was located in `Administrator/Desktop`, as expected.
 
-Although both local and domain-related artifacts were collected, only the recovered hashes that authenticated successfully against **domain resources** were used for further access.
+![flag](/assets/img/blog/PGLabs/Internal/flag.png)
 
-## Initial Access
+To validate the behavior, the process was repeated on a PC with packages installed incrementally. Installing samba-common-bin alone was insufficient. Installing smbclient also failed to resolve the issue. Even after installing the Impacket packages, the outcome remained inconsistent. **I’m befuddled**.
 
-`ItachiUchiha` with cracked password disconnected repeatedly; switched to `L.Livingstone` using **pass-the-hash**.
-
-![evilwinrm](/assets/img/blog/PGLabs/Resourced/evilwinrm.png)
-![evilwinrm_priv](/assets/img/blog/PGLabs/Resourced/evilwinrm_priv.png)
-
-`l.livingstone` is not a local or domain administrator but possessed the `SeMachineAccountPrivilege`, which allows the creation of computer accounts in the domain.
-
-Privilege Escalation looks like this below:
-
-**1)** using **L.Livingstone (non-administrative account)** to create **fake computer account**<br>
-**2)** give fake computer account **RBCD (Resource-Based Constrained Delegation) rights**<br>
-**3)** forge **Kerberos ticket**<br>
-**4)** log in as **SYSTEM** on server<br>
-**5)** pivot to **Domain Admin**<br>
-
-This escalation path was selected based on delegated privileges observed during Active Directory enumeration, rather than brute-force or vulnerability-based exploitation.
-
-## Active Directory Enumeration
-
-**SharpHound** was executed on the compromised host, and the resulting ZIP was transferred and ingested into **BloodHound** for local analysis.
-
-![sharphound](/assets/img/blog/PGLabs/Resourced/sharphound.png)
-![bloodhound](/assets/img/blog/PGLabs/Resourced/bloodhound.png)
-![GenericAll](/assets/img/blog/PGLabs/Resourced/GenericAll.png)
-
-**PowerView** was used to inspect **ACLs** on the target object, confirming inherited **ACEs** that granted **excessive control**. The final ACE was inherited (`IsInherited`, `ContainerInherit`) and mapped to `SID 519` (**Enterprise Admins**).
-
-![powerviewps1](/assets/img/blog/PGLabs/Resourced/powerviewps1.png)
-![ACEs](/assets/img/blog/PGLabs/Resourced/ACEs.png)
-
-## Privilege Escalation
-
-![impacket-addcomputer](/assets/img/blog/PGLabs/Resourced/impacket-addcomputer.png)
-![rbcd](/assets/img/blog/PGLabs/Resourced/rbcdattack.png)
-![impacket-getST](/assets/img/blog/PGLabs/Resourced/impacket-getST.png)
-![etchost](/assets/img/blog/PGLabs/Resourced/etchost.png)
-![impacket-psexec](/assets/img/blog/PGLabs/Resourced/impacket-psexec.png)
-
-This resulted in execution with SYSTEM-level privileges on a domain controller, completing domain compromise.
-
-## Remedies
-
-1. **Never store credentials in SMB shares**
-    1. use password manager
-    2. secure onboard workflow
-    3. just-in-time credential delivery
-
-2. **Apply Princple of Least Privilege to SMB shares**
-    1. Never `Everyone`
-    2. no authenticated user unless required
-    3. seperate read and write access
-    4. read-only access is still exposed
-
-3. **No backup or sensitive artifacts in SMB shares**
-    1. audits shouldn't be stored there
-    2. backup location should be restricted to Backup Operators only
-
-4. **Remove SeMachineAccountPrivilege from standard users**
-    1. remove `SeMachineAccountPrivilege` from standard users
-    2. remove it from service accounts
-    3. restrict it to Domain Admins only
-
-5. **Audit and restrict RBCD permissions**
-    1. regularly audit `msDS-AllowedToActOnBehalfOfOtherIdentity`
-    2. prevent non-admin users from modifying delegation setting
-
-6. **Limit computer accounts to prevent new created account**
-    1. set `ms-DS-MachineAccountQuota` to `0`
-    2. Delegate computer creation to dedicated provisioning accounts
-
-7. **Disable legacy NTLM authentication**
-    1. reduce or disable NTLM usage
-    2. enforce Kerberos hardening
-    3. monitor pass-the-hash activity
-
-[Dpsypher]:https://medium.com/@Dpsypher/proving-grounds-practice-resourced-b3a50d40664b
-
+[kh@n]:https://medium.com/@ayxantanirverdiyev6/pg-practice-internal-walkthrough-49bca402f737
+[Dpsypher]:https://medium.com/@Dpsypher/proving-grounds-practice-internal-e5098dd29793
+[HTB forum]:https://forum.hackthebox.com/t/error-nt-status-not-found-smbclient-pwnbox/266639/4
+[`samba-common-bin`]:https://manpages.debian.org/experimental/samba-common-bin/samba.7.en.html
