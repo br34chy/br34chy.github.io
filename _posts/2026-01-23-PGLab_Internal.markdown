@@ -50,6 +50,28 @@ The flag was located in `Administrator/Desktop`, as expected.
 
 To validate the behavior, the process was repeated on a PC with packages installed incrementally. Installing samba-common-bin alone was insufficient. Installing smbclient also failed to resolve the issue. Even after installing the Impacket packages, the outcome remained inconsistent. **I’m befuddled**.
 
+## Remedies (Legacy environments)
+
+Although the issue has since been patched, environments that must retain legacy SMB or RPC behavior should focus on reducing blast radius rather than eliminating compatibility outright.
+
+1. **Restrict anonymous and NULL SMB access**
+    1. disable anonymous SMB sessions
+    2. disable NULL RPC bindings
+    3. require authentication for SMB named pipes
+
+2. **Reduce SMB attack surface**
+    1. limit SMB access to required hosts only
+    2. restrict SMB access to internal management networks
+
+3. **Enforce consistent SMB client behavior**
+    1. require SMB signing
+    2. disable fallback authentication methods
+
+4. **Monitor suspicious SMB behavior**
+    1. alert on SMB connections followed by failed RPC calls
+    2. monitor repeated NT_STATUS errors
+
+
 [kh@n]:https://medium.com/@ayxantanirverdiyev6/pg-practice-internal-walkthrough-49bca402f737
 [Dpsypher]:https://medium.com/@Dpsypher/proving-grounds-practice-internal-e5098dd29793
 [HTB forum]:https://forum.hackthebox.com/t/error-nt-status-not-found-smbclient-pwnbox/266639/4
