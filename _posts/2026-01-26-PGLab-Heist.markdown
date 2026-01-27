@@ -75,7 +75,7 @@ Running `whoami /all` showed `svc_apache$` as a **Domain Computer** account with
 
 ![cmdexe](/assets/img/blog/PGLabs/Heist/cmdexe.png)
 
-## Remedies (Legacy environments)
+## Remedies
 
 This behavior cannot be patched because it is an intended design. NTLMv2 remains widely enabled in Active Directory environments, making SSRF-induced credential leakage a realistic risk where outbound authentication is not restricted.
 
