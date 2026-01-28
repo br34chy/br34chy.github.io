@@ -16,7 +16,7 @@ comments: true
 
 ## Initial Enumeration
 
-**Kerberos + LDAP + DNS + kpasswd** on the same host, that combo exists for AD and basically nothing else. SMB shows **message signing enabled and required**.
+**Kerberos + LDAP + DNS + kpasswd** on the same host, that combo exists for AD and basically nothing else. SMB shows **message signing enabled and required**, and this blocks NTLM relay over SMB.
 
 ![nmap](/assets/img/blog/PGLabs/Heist/nmap.png)
 
@@ -54,8 +54,7 @@ Mapped domain relationships, privileges, and potential escalation paths with `bl
 
 ![bloodhound](/assets/img/blog/PGLabs/Heist/bloodhound.png)
 
-After marking enox as **ADD TO OWNED**, outbound control revealed `ReadGMSAPassword`, allowing the **gMSA password hash** to be retrieved and reused via **pass-the-hash**.
-
+After marking enox as **ADD TO OWNED**, outbound control revealed `ReadGMSAPassword`, allowing the **gMSA password hash** to be retrieved and reused via **pass-the-hash**. gMSA passwords are long, automatically rotated (typically every 30 days), and rarely monitored, making them ideal high value lateral movement credentials once exposed.
 
 ![gmaspasswordreader](/assets/img/blog/PGLabs/Heist/gmsapasswordreader.png)
 
