@@ -8,6 +8,8 @@ years: ['2026']
 comments: true
 ---
 
+![heist](/assets/img/blog/PGLabs/Heist/heist.png)
+
 ## SSRF via NTLMv2 Abuse
 
 **Heist (PG Lab)** demonstrates an **SSRF (Server-Side Request Forgery)** abuse path that enables **NTLMv2 credential capture and relay**, leading to local privilege escalation on a Windows system. [HuWanyu][HuWanyu]'s public walkthrough was used as a reference during analysis. His endgame approach is clever, short, and sweet.

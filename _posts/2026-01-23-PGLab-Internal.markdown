@@ -8,6 +8,8 @@ years: ['2026']
 comments: true
 ---
 
+![Internal](/assets/img/blog/PGLabs/Internal/Internal.png)
+
 ## Exploited Without Metasploit, Yet Befuddled
 
 ![labdescr](/assets/img/blog/PGLabs/Internal/labdescr.png)
