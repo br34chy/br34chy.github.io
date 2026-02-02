@@ -11,7 +11,7 @@ comments: true
 
 ![Resourced](/assets/img/blog/PGLabs/Resourced/Resourced.png)
 
-## Delegation Misconfig
+## Delegation Misconfiguration
 
 ![labdescr](/assets/img/blog/PGLabs/Resourced/labdescr.png)
 
@@ -27,9 +27,7 @@ Service enumeration confirmed an **Active Directory** environment, with standard
 
 ![enum4linux](/assets/img/blog/PGLabs/Resourced/enum4linux.png)
 
-## SMB Enumeration
-
-Tested **anonymous access**, followed by authentication using the discovered user with an onboarding password.
+Tested **anonymous access** through `smbclient`, followed by authentication using the discovered user with an onboarding password.
 
 ![smbclient](/assets/img/blog/PGLabs/Resourced/smbclient.png)
 ![smbrecursels](/assets/img/blog/PGLabs/Resourced/smbrecursels.png)
@@ -79,7 +77,7 @@ This escalation path was selected based on delegated privileges observed during 
 ## Active Directory Enumeration
 **[SharpHound][SharpHound]** was executed on the compromised host. SharpHound collects Active Directory relationship data for BloodHound to analyze privilege escalation paths.
 
-**Note for macOS users:** As of ~2 weeks ago, SharpHound releases no longer include a precompiled `SharpHound.exe` and now ship source code only (`.sln`). macOS cannot practically build SharpHound into a usable Windows executable, so SharpHound must be compiled or executed from a Windows environment (e.g., Parallels Desktop, VMware, or a native Windows host). Kali and macOS do not provide SharpHound binaries by default.
+**Note for macOS users:** As of ~2 weeks ago, SharpHound releases no longer include a precompiled `SharpHound.exe` and now ship source code only (`.sln`). macOS cannot practically build SharpHound into a usable Windows executable, so **SharpHound must be compiled or executed from a Windows environment (e.g., Parallels Desktop, VMware, or a native Windows host)**. Kali and macOS do not provide SharpHound binaries by default.
 
 ![sharphound](/assets/img/blog/PGLabs/Resourced/sharphound.png)
 
