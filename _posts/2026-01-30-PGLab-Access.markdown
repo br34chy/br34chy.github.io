@@ -107,9 +107,9 @@ Captured hashes were then processed to recover service account credentials with 
 
 ![hashcat](/assets/img/blog/PGLabs/Access/hashcat.png)
 
-![password](/assets/img/blog/PGLabs/Access/password.png)
-
 ![cracked](/assets/img/blog/PGLabs/Access/cracked.png)
+
+![password](/assets/img/blog/PGLabs/Access/password.png)
 
 ## Lateral Movement
 

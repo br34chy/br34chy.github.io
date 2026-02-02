@@ -72,7 +72,7 @@ Dumped the gMSA password hashes for `svc_apache$`, updated /etc/hosts, and then 
 
 ![svc_apache_all](/assets/img/blog/PGLabs/Heist/svc_apache_all.png)
 
-Running `whoami /all` showed `svc_apache$` as a **Domain Computer** account with `SeRestorePrivilege`. This privilege allows protected files to be overwritten by bypassing normal permission checks, making it dangerous when abused. Initial enumeration also showed `RDP` exposed on `port 3389`. Since `utilman.exe` can be triggered before login over RDP, the binary was replaced with `cmd.exe`, resulting in a **SYSTEM shell** being spawned at the login screen. 
+Running `whoami /all` showed `svc_apache$` as a **Domain Computer** account with `SeRestorePrivilege`. This privilege allows protected files to be overwritten by bypassing normal permission checks, making it dangerous when abused. Initial enumeration also showed `RDP` exposed on `port 3389`. Since `utilman.exe` can be triggered before login over RDP, the binary was replaced with `cmd.exe`, resulting in a **SYSTEM shell** being spawned at the login screen.
 
 ![cmdexe](/assets/img/blog/PGLabs/Heist/cmdexe.png)
 
