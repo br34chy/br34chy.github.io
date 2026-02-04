@@ -39,7 +39,7 @@ Uploads using **alternative extensions** such as `.png` were accepted, raising t
 
 ![buytix4](/assets/img/blog/PGLabs/Access/buytix4.png)
 
-This is where `ffuf` comes in. I filtered out `200` and `404` responses to reduce noise. The output isn’t pretty, but the `301` populated in few top rows: `uploads`, `assets`, and `forms`.
+This is where `ffuf` comes in. I filtered out `200` and `404` responses to reduce noise. While 200 can sometimes matter, modern apps often return it for everything. The output isn’t pretty, but the `301` populated in few top rows: `uploads`, `assets`, and `forms`.
 
 ![ffuf](/assets/img/blog/PGLabs/Access/ffuf.png)
 
@@ -125,15 +125,13 @@ Two privileges are worth eyeing: **SeMachineAccountPrivilege**, and **SeManageVo
 
 ![smve](/assets/img/blog/PGLabs/Access/smve.png)
 
-`icacls` confirmed `NT AUTHORITY\SYSTEM` and `TrustedInstaller` with **Full Control**. `System32` become writable, allowing payload placement in trusted locations and service-level execution to complete the escalation.
+`icacls` confirmed `NT AUTHORITY\SYSTEM` and `TrustedInstaller` with **Full Control**. `System32` becomes writable, allowing payload placement in trusted locations and service-level execution to complete the escalation.
 
 ![icacls](/assets/img/blog/PGLabs/Access/icacls.png)
 
 A final reverse shell was generated with `msfvenom`, disguised as `tzres.dll` (timezone resources), and placed in `C:\Windows\System32\wbem`. Because WBEM is trusted, executing `systeminfo` caused the DLL to load, triggering code execution.
 
 ![msfvenom](/assets/img/blog/PGLabs/Access/msfvenom.png)
-
-![tzresdll](/assets/img/blog/PGLabs/Access/tzresdll.png)
 
 ![wbem](/assets/img/blog/PGLabs/Access/wbem.png)
 
