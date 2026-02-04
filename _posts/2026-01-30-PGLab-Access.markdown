@@ -10,7 +10,7 @@ comments: true
 
 ![Access](/assets/img/blog/PGLabs/Access/Access.png)
 
-## File Upload to SYSTEM: A Multi-Stage Access Chain
+## From Restricted File Upload to SYSTEM
 
 ![labdescr](/assets/img/blog/PGLabs/Access/labdescr.png)
 
