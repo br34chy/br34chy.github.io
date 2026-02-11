@@ -1,12 +1,17 @@
 ---
 layout: post
-title: "PG Lab - Internal"
+title: "Proving Grounds Internal: No Metasploit"
 date: 2026-01-23 00:00:00 -0400
 categories: [Labs, Proving Grounds]
 tags: [Active Directory]
 years: ['2026']
 comments: true
 ---
+
+**Same exploit. Same payload.** <br>
+**Worked on macOS. Failed on PC.**
+
+**Lesson: exploitation isn’t just about the vulnerability, it’s about how tools and environments interact with it.**
 
 ![Internal](/assets/img/blog/PGLabs/Internal/Internal.png)
 

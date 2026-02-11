@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PG Lab - Resourced"
+title: "Proving Grounds Resourced: Delegator"
 date: 2026-01-07
  00:00:00 -0400
 categories: [Labs, Proving Grounds]
@@ -8,6 +8,11 @@ tags: [Active Directory]
 years: ['2026']
 comments: true
 ---
+
+**Delegation misconfigured.** <br> 
+**Authority inherited.**
+
+**Lesson: trust delegation can silently become full control.**
 
 ![Resourced](/assets/img/blog/PGLabs/Resourced/Resourced.png)
 

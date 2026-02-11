@@ -1,12 +1,18 @@
 ---
 layout: post
-title: "PG Lab - Access"
+title: "Proving Grounds Access: Master Key"
 date: 2026-01-30 00:00:00 -0400
 categories: [Labs, Proving Grounds]
 tags: [Active Directory]
 years: ['2026']
 comments: true
 ---
+
+**Restricted upload.**<br>
+**Trust misplaced.**
+
+**Lesson: small upload decisions can quietly lead to SYSTEM.**
+
 
 ![Access](/assets/img/blog/PGLabs/Access/Access.png)
 

@@ -1,12 +1,17 @@
 ---
 layout: post
-title: "PG Lab - Heist"
+title: "Proving Grounds Heist: Getaway"
 date: 2026-01-26 00:00:00 -0400
 categories: [Labs, Proving Grounds]
 tags: [Active Directory]
 years: ['2026']
 comments: true
 ---
+
+**SMB signing enabled.**<br>
+**NTLM still leaked.**
+
+**Lesson: outbound authentication is often the real attack surface.**
 
 ![heist](/assets/img/blog/PGLabs/Heist/heist.png)
 
