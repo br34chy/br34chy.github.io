@@ -21,7 +21,7 @@ comments: true
 
 **PlanetExpress (PG Lab)** is an example of **SUID (Set User ID/setuid) misconfiguration**. SUID abuse occurs when a service runs with **root level privilege**. In file permissions, SUID appears as an `s`, for example: `-rwsr--r--`. Attacker can use that service to **cross a privilege boundary**.  
 
-This lab is offically rated **Easy**, yet the community rates it **Very Hard**. *Which is it?* 
+This lab is officially rated **Easy**, yet the community rates it **Very Hard**. *Which is it?* 
 
 The difficulty does not come from exploitation, it comes from **discovery**. The hardest part is **directory enumerating**. Relying on tools like `john` or `ffuf` cost time, searching through wordlists before an entry point is found. Using the right tool, such as `dirsearch` makes this easy. 
 
